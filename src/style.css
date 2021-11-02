@@ -1,8 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
+
 body {
   background: lightgray;
   color: rgb(44, 41, 41);
@@ -17,7 +18,8 @@ h2 {
   font-size: 1.5rem;
 }
 
-input,  button {
+input,
+button {
   padding: 1rem;
   font-size: 2rem;
   border: 1px solid grey;
@@ -28,12 +30,13 @@ button {
   background: white;
   color: white;
 }
- .removeBtn {
-   background: lightgray;
-   color: grey;
- } 
 
- #container {
+.removeBtn {
+  background: lightgray;
+  color: grey;
+}
+
+#container {
   min-height: 20vh;
   display: flex;
   flex-direction: column;
@@ -41,5 +44,5 @@ button {
   align-items: center;
   font-size: 1.5rem;
   border: 1px solid grey;
-    margin: 50px;
- }
+  margin: 50px;
+}

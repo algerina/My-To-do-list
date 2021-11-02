@@ -1,7 +1,4 @@
 import './style.css';
-// Selectors
-const addTasks = document.querySelector('.add-tasks');
-const taskButton = document.querySelector('.task-button');
 
 const Tasks = [];
 let count = 0;
