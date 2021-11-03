@@ -1,65 +1,48 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# My-To-do-list
 
-> One paragraph statement about the project.
+> This is a minimalist and simple To Do list.  It simply lists the things needed to do and allows  to mark them as complete.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./todo.JPG)
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS3
+- javaScript
+- Webpack
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://algerina.github.io/My-to-do-list/dist)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
+**To get a local copy up and running follow these simple example steps:
+- Clone the repo to your computer.
+- Run "npm install" to make webpack works.
+- Open ./dist/index.html in your browser.**
 
 
 
-## Authors
+## Author
 
-👤 **Author1**
+👤 **AmelKhiri**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+- GitHub: [@gAlgerina](https://github.com/Algerina)
+- LinkedIn: [Amel Khiri](https://linkedin.com/in/amel-khiri-qahwadji-37a550135)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/algerina/My-To-do-list/issues).
 
 ## Show your support
 
