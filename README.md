@@ -4,24 +4,28 @@
 
 > This is a minimalist and simple To Do list.  It simply lists the things needed to do and allows  to mark them as complete.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./todo.JPG)
 
 Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS3
+- javaScript
+- Webpack
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://algerina.github.io/My-to-do-list/dist)
 
 
 ## Getting Started
 
-**To get a local copy just download the repository ZIP, UNZIP then open the Index.html file.**
+**To get a local copy up and running follow these simple example steps:
+- Clone the repo to your computer.
+- Run "npm install" to make webpack works.
+- Open ./dist/index.html in your browser.**
 
 
 
@@ -38,7 +42,7 @@ Additional description about the project and its features.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/algerina/My-To-do-list/issues).
 
 ## Show your support
 
