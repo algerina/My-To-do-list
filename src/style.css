@@ -5,9 +5,10 @@
 }
 
 body {
-  background: lightgray;
+  background: rgb(231, 227, 227);
   color: rgb(44, 41, 41);
   min-height: 100vh;
+  width: 100%
 }
 
 h2 {
@@ -18,12 +19,37 @@ h2 {
   font-size: 1.5rem;
 }
 
-input,
+input {
+  font-style: italic;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid rgb(216, 205, 205);
+  background: white;
+  box-sizing: border-box;
+  width:700px;;
+  margin-right: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
 button {
   padding: 1rem;
   font-size: 2rem;
-  border: 1px solid grey;
+  border: 1px solid rgb(216, 205, 205);
   background: white;
+  box-sizing: border-box;
+  width:100%;
+}
+
+.element {
+width: 100%;
+align-items: center;
+border-bottom: 0.5px solid lightgray;
+display: inline-flex;
+padding: 1px;
+gap: 1px;
+min-width: 70%;
+padding: 8px 546px 2px 0;
 }
 
 button {
@@ -34,6 +60,13 @@ button {
 .removeBtn {
   background: lightgray;
   color: grey;
+  width: 100%;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+#items {
+  align-items: left;
+  margin: 0;
 }
 
 #container {
@@ -41,8 +74,11 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   font-size: 1.5rem;
-  border: 1px solid grey;
-  margin: 50px;
+  border: 1px solid rgb(190, 185, 185);
+  margin: 50px;box-shadow: 0 4px 8px 0 #0003, 0 6px 20px 0 #00000030;
+  background: white;
+  width: 80%;
+  max-width: 700px;
+  margin: 2px;
 }
