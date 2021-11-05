@@ -1,3 +1,4 @@
+import {updateLocalStorage} from './storage';
 import './style.css';
 
 
@@ -15,9 +16,16 @@ class Todo {
 
 }
 
+const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+const tasks = storedTasks || [];
+
 const list = document.getElementById('todoList');
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
+
+if (storedTasks && storedTasks.length) {
+  renderTasks(storedTasks);
+}
 
 function createTask() {
   const text = addInput.value;
@@ -73,4 +81,12 @@ function renderTasks(tasks) {
       })
   })
 }
+
+addButton.addEventListener("click", createTask);
+
+addInput.addEventListener("keypress", function(event){
+    if (event.key === "Enter") {
+        createTask();
+    }
+});
 
