@@ -1,13 +1,11 @@
 import './style.css';
-
-// const updateLocalStorage = require('./storage.js');
+import renderTasks from './render.js';
 
 const renderTasks = require('./render.js');
 
 const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 const tasks = storedTasks || [];
 
-// const list = document.getElementById('todoList');
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
 class Todo {

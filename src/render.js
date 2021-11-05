@@ -1,4 +1,4 @@
-const updateLocalStorage = require('./storage.js');
+import updateLocalStorage from './storage.js';
 
 function renderTasks(tasks) {
   const list = document.getElementById('todoList');
@@ -19,8 +19,6 @@ function renderTasks(tasks) {
             <button class="remove"></button>
           `;
     list.append(li);
-  });
-  //   const list = document.getElementById('todoList');
 
   const lis = list.querySelectorAll('.checkbox');
 
@@ -43,4 +41,4 @@ function renderTasks(tasks) {
   });
 }
 
-module.exports = { renderTasks };
+export default renderTasks;
