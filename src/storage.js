@@ -1,6 +1,5 @@
 /* eslint-disable no-use-before-define */
-function updateLocalStorage() {
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
+function updateLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 

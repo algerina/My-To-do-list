@@ -29,11 +29,11 @@ function renderTasks(tasks) {
             if (li.checked) {
               task.completed = true;
               li.parentElement.classList.add('checked');
-              updateLocalStorage();
+              updateLocalStorage(tasks);
             } else {
               task.completed = false;
               li.parentElement.classList.remove('checked');
-              updateLocalStorage();
+              updateLocalStorage(tasks);
             }
           }
         });

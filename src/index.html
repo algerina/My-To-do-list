@@ -10,12 +10,18 @@
 		<div id="container">
         <div>
             <h2>Today's To Do list</h2>
-            <form class="form">
             <input type="text" name="task" id="newTask" placeholder="Add a new task">
-            <button  type="submit" class="todo-button">+</button>
-            </form>
+            <button id="addBtn">+</button>
         </div>
-        <div id="items"></div>
+        <div id="items">
+            <ul id="todoList" class="data-lists">
+                <li class="list-name">
+                    <input type="checkbox" class="checkbox">
+                    <p class="taskText"></p>
+                    <span class="remove"><div></div></span>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

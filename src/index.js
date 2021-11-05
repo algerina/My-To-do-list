@@ -44,8 +44,7 @@ function createTask() {
 addButton.addEventListener('click', createTask);
 
 addInput.addEventListener('keypress', (event) => {
-  if (event.key === 13) {
+  if (event.key === 'Enter') {
     createTask();
-  } 
-  return true;
+  }
 });
