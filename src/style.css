@@ -1,6 +1,5 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -19,7 +18,7 @@ h2 {
   font-size: 1.5rem;
 }
 
-input {
+#newTask {
   font-style: italic;
   padding: 1rem;
   font-size: 1rem;
@@ -28,7 +27,8 @@ input {
   box-sizing: border-box;
   margin-right: 15px;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
+  margin-left: 2px;
 }
 
 button {
@@ -37,7 +37,6 @@ button {
   border: 1px solid rgb(216, 205, 205);
   background: white;
   box-sizing: border-box;
-  width: 100%;
 }
 
 .element {
@@ -73,4 +72,42 @@ button {
   background: white;
   width: 80%;
   max-width: 700px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  width: 20px;
+  position: relative;
+  margin-left: -95px;
+  margin-top: -45px;
+}
+
+.remove {
+  border: none;
+}
+
+#addBtn {
+  width: 20px;
+  border: none;
+  color: white;
+}
+
+#todoList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: flex-start;
+}
+
+.list-name {
+  display: flex;
+  flex-direction: column;
+  margin: 8vh 5vw;
+  background-color: white;
+  padding: 0 3vw;
 }

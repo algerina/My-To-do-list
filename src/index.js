@@ -1,45 +1,50 @@
 import './style.css';
+import renderTasks from './render.js';
 
-const Tasks = [];
-let count = 0;
+const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+const tasks = storedTasks || [];
 
+const addInput = document.getElementById('newTask');
+const addButton = document.getElementById('addBtn');
 class Todo {
-  constructor(description, completed, index) {
+  constructor(description, completed = false) {
     this.description = description;
     this.completed = completed;
-    this.index = index;
+    this.index = tasks.length + 1;
+  }
+
+  addArray() {
+    tasks.push({
+      description: this.description,
+      completed: this.completed,
+      index: this.index,
+    });
   }
 }
 
-Tasks.push(new Todo('Read', false, (count += 1)));
-Tasks.push(new Todo('Yoga', false, (count += 1)));
-Tasks.push(new Todo('Cook', false, (count += 1)));
+if (storedTasks && storedTasks.length) {
+  renderTasks(storedTasks);
+}
 
-const Items = document.createElement('div');
+function createTask() {
+  const text = addInput.value;
 
-const addList = () => {
-  Tasks.forEach((task) => {
-    const taskItem = document.createElement('div');
+  if (text === '') {
+    return;
+  }
+  const task = new Todo(text);
 
-    const descriptionElem = document.createElement('span');
-    descriptionElem.innerText = task.description;
-    const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox';
-    taskItem.classList.add('element');
-    taskItem.appendChild(checkBox);
-    taskItem.appendChild(descriptionElem);
-    Items.appendChild(taskItem);
-  });
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks(tasks);
 
-  document.getElementById('items').appendChild(Items);
+  addInput.value = '';
+}
 
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('removeBtn');
-  removeButton.innerText = 'Clear all completed';
-  removeButton.type = 'button';
-  Items.appendChild(removeButton);
+addButton.addEventListener('click', createTask);
 
-  return Items;
-};
-
-addList();
+addInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    createTask();
+  }
+});
