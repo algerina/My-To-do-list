@@ -20,22 +20,23 @@ function renderTasks(tasks) {
           `;
     list.append(li);
 
-  const lis = list.querySelectorAll('.checkbox');
+    const lis = list.querySelectorAll('.checkbox');
 
-  lis.forEach((li) => {
-    li.addEventListener('change', () => {
-      tasks.forEach((task) => {
-        if (Number(li.id) === task.index) {
-          if (li.checked) {
-            task.completed = true;
-            li.parentElement.classList.add('checked');
-            updateLocalStorage.updateLocalStorage();
-          } else {
-            task.completed = false;
-            li.parentElement.classList.remove('checked');
-            updateLocalStorage.updateLocalStorage();
+    lis.forEach((li) => {
+      li.addEventListener('change', () => {
+        tasks.forEach((task) => {
+          if (Number(li.id) === task.index) {
+            if (li.checked) {
+              task.completed = true;
+              li.parentElement.classList.add('checked');
+              updateLocalStorage();
+            } else {
+              task.completed = false;
+              li.parentElement.classList.remove('checked');
+              updateLocalStorage();
+            }
           }
-        }
+        });
       });
     });
   });

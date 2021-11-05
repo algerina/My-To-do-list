@@ -1,8 +1,6 @@
 import './style.css';
 import renderTasks from './render.js';
 
-const renderTasks = require('./render.js');
-
 const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 const tasks = storedTasks || [];
 
@@ -38,7 +36,7 @@ function createTask() {
 
   tasks.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  renderTasks.renderTasks(tasks);
+  renderTasks(tasks);
 
   addInput.value = '';
 }
@@ -46,7 +44,8 @@ function createTask() {
 addButton.addEventListener('click', createTask);
 
 addInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
+  if (event.key === 13) {
     createTask();
-  }
+  } 
+  return true;
 });
