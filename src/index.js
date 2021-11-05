@@ -1,14 +1,18 @@
 import './style.css';
 
-const Tasks = [];
-let count = 0;
 
 class Todo {
-  constructor(description, completed, index) {
+  constructor(description, completed = false) {
     this.description = description;
     this.completed = completed;
-    this.index = index;
+    this.index = tasks.length + 1;
   }
+    addArray() {
+      tasks.push({description: this.description,
+        completed: this.completed, 
+        index: this.index})
+    }
+
 }
 
 Tasks.push(new Todo('Read', false, (count += 1)));
@@ -43,3 +47,23 @@ const addList = () => {
 };
 
 addList();
+
+const todoForm = document.querySelector('.form');
+const todoInput = document.querySelector('#newTask');
+const todoBtn = document.querySelector('.todo-button');
+
+todoForm.addEventListener('submit', addTask);
+
+function addTask(event, Tasks, description, completed) {
+  event.preventDefault();
+  const todoInput = (this.querySelector('[name=task]')).value;
+  console.log("hello");
+  Tasks.push({
+    description: input.value,
+    completed: false,
+    index: Tasks.length,
+  });
+
+
+}
+
