@@ -1,5 +1,6 @@
 * {
   margin: 0;
+
   /* padding: 0; */
   box-sizing: border-box;
 }
@@ -29,7 +30,7 @@ h2 {
   margin-right: 15px;
   cursor: pointer;
   width: 90%;
-  margin-left: 2px;;
+  margin-left: 2px;
 }
 
 button {
@@ -38,6 +39,7 @@ button {
   border: 1px solid rgb(216, 205, 205);
   background: white;
   box-sizing: border-box;
+
   /* width: 100%; */
 }
 
@@ -81,12 +83,10 @@ button {
 }
 
 .checkbox {
-  
   width: 20px;
   position: relative;
   margin-left: -95px;
   margin-top: -45px;
-  
 }
 
 .remove {
