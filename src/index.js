@@ -15,55 +15,62 @@ class Todo {
 
 }
 
-Tasks.push(new Todo('Read', false, (count += 1)));
-Tasks.push(new Todo('Yoga', false, (count += 1)));
-Tasks.push(new Todo('Cook', false, (count += 1)));
+const list = document.getElementById('todoList');
+const addInput = document.getElementById('newTask');
+const addButton = document.getElementById('addBtn');
 
-const Items = document.createElement('div');
+function createTask() {
+  const text = addInput.value;
 
-const addList = () => {
-  Tasks.forEach((task) => {
-    const taskItem = document.createElement('div');
+  if (text === "") {
+      return;
+  }
+  const task = new Todo(text);
+  
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks(tasks);
 
-    const descriptionElem = document.createElement('span');
-    descriptionElem.innerText = task.description;
-    const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox';
-    taskItem.classList.add('element');
-    taskItem.appendChild(checkBox);
-    taskItem.appendChild(descriptionElem);
-    Items.appendChild(taskItem);
+  addInput.value = "";
+}
+
+ 
+
+function renderTasks(tasks) {
+  list.innerHTML = '';
+  tasks.forEach(function(item) {
+      const li = document.createElement('li');
+      li.setAttribute('class', 'list-name');
+      item.completed ? li.classList.add('checked') : li.classList.remove('checked');
+      const checked = item.completed ? 'checked' : '';
+        
+        li.innerHTML = `
+          <input type="checkbox" class="checkbox" id=${item.index} ${checked}>
+          <span>${item.description}</span>
+          <button class="remove"></button>
+        `;
+        list.append(li);
   });
 
-  document.getElementById('items').appendChild(Items);
+  const lis = list.querySelectorAll('.checkbox');
 
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('removeBtn');
-  removeButton.innerText = 'Clear all completed';
-  removeButton.type = 'button';
-  Items.appendChild(removeButton);
-
-  return Items;
-};
-
-addList();
-
-const todoForm = document.querySelector('.form');
-const todoInput = document.querySelector('#newTask');
-const todoBtn = document.querySelector('.todo-button');
-
-todoForm.addEventListener('submit', addTask);
-
-function addTask(event, Tasks, description, completed) {
-  event.preventDefault();
-  const todoInput = (this.querySelector('[name=task]')).value;
-  console.log("hello");
-  Tasks.push({
-    description: input.value,
-    completed: false,
-    index: Tasks.length,
-  });
-
-
+  lis.forEach(li => {
+      li.addEventListener('change', function() {
+          tasks.forEach(task => {
+              if (Number(li.id) === task.index) {
+                  if (li.checked) {
+                      task.completed = true;
+                      li.parentElement.classList.add('checked');
+                      updateLocalStorage();
+                  } else {
+                      task.completed = false;
+                      li.parentElement.classList.remove('checked');
+                      updateLocalStorage();
+                  }
+                  
+              }
+          })
+      })
+  })
 }
 
