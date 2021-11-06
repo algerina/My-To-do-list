@@ -7,6 +7,7 @@ let tasks = storedTasks || [];
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
 const deleteButton = document.getElementById('clear');
+console.log(deleteButton);
 class Todo {
   constructor(description, completed = false) {
     this.description = description;
@@ -47,7 +48,7 @@ const saveList = (list) => {
   tasks = JSON.parse(localStorage.getItem('tasks'));
 };
 
-function editItem(event, index) {
+export default function editItem(event, index) {
   tasks.forEach((task) => {
     if (task.index === Number(index)) {
       task.description = event.target.value;
@@ -64,7 +65,7 @@ addInput.addEventListener('keypress', (event) => {
   }
 });
 
-function deleteTask(indx) {
+export  function deleteTask(indx) {
   const newTasks = tasks.filter((task) => task.index !== Number(indx));
 
   updatePosition(newTasks);
@@ -74,6 +75,7 @@ function deleteTask(indx) {
 
 // function for delete all completed
 function deleteCompleted() {
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
   const newList = tasks.filter((task) => task.completed === false);
 
   updatePosition(newList);
@@ -83,4 +85,4 @@ function deleteCompleted() {
 
 deleteButton.addEventListener('click', deleteCompleted);
 
-export { deleteTask, editItem };
+// export default editItem;
