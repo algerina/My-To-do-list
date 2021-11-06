@@ -1,10 +1,9 @@
 import './style.css';
+/* eslint-disable */
 import renderTasks from './render.js';
 
 const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-const tasks = storedTasks || [];
-
-
+let tasks = storedTasks || [];
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
 const deleteButton = document.getElementById('clear');
@@ -48,7 +47,7 @@ const saveList = (list) => {
   tasks = JSON.parse(localStorage.getItem('tasks'));
 };
 
-export default function editItem(event, index) {
+function editItem(event, index) {
   tasks.forEach((task) => {
     if (task.index === Number(index)) {
       task.description = event.target.value;
@@ -56,7 +55,6 @@ export default function editItem(event, index) {
   });
   saveList(tasks);
 }
-
 
 addButton.addEventListener('click', createTask);
 
@@ -66,11 +64,7 @@ addInput.addEventListener('keypress', (event) => {
   }
 });
 
-
-
-
-
-export default function deleteTask(indx) {
+function deleteTask(indx) {
   const newTasks = tasks.filter((task) => task.index !== Number(indx));
 
   updatePosition(newTasks);
@@ -88,3 +82,5 @@ function deleteCompleted() {
 }
 
 deleteButton.addEventListener('click', deleteCompleted);
+
+export { deleteTask, editItem };
