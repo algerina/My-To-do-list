@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  /* padding: 0; */
   box-sizing: border-box;
 }
 
@@ -10,11 +11,16 @@ body {
   width: 100%;
 }
 
+.header-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
 h2 {
-  min-height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
@@ -28,7 +34,7 @@ h2 {
   margin-right: 15px;
   cursor: pointer;
   width: 90%;
-  margin-left: 2px;
+  margin-left: 2px;;
 }
 
 button {
@@ -37,6 +43,7 @@ button {
   border: 1px solid rgb(216, 205, 205);
   background: white;
   box-sizing: border-box;
+  /* width: 100%; */
 }
 
 .element {
@@ -56,22 +63,25 @@ button {
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 22px 0 rgba(0, 0, 0, 0.19);
 }
 
-#items {
+.items-container {
   margin: 0;
+  width: 100%;
 }
 
 #container {
-  min-height: 20vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   font-size: 1.5rem;
   border: 1px solid rgb(190, 185, 185);
-  margin: 50px;
   box-shadow: 0 4px 8px 0 #0003, 0 6px 20px 0 #00000030;
   background: white;
   width: 80%;
   max-width: 700px;
+  margin: 0 auto;
+  overflow-y: scroll;
 }
 
 .checked {
@@ -79,10 +89,8 @@ button {
 }
 
 .checkbox {
-  width: 20px;
-  position: relative;
-  margin-left: -95px;
-  margin-top: -45px;
+  width: 30px;
+  margin-right: 1rem;
 }
 
 .remove {
@@ -92,7 +100,7 @@ button {
 #addBtn {
   width: 20px;
   border: none;
-  color: white;
+  color: #000;
 }
 
 #todoList {
@@ -100,14 +108,22 @@ button {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-between;
-  justify-content: flex-start;
+  padding: 0;
 }
 
 .list-name {
   display: flex;
-  flex-direction: column;
-  margin: 8vh 5vw;
-  background-color: white;
-  padding: 0 3vw;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  margin: 1.5rem auto;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.editable-input {
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
 }
