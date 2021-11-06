@@ -4,7 +4,7 @@ import renderTasks from './render.js';
 const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 const tasks = storedTasks || [];
 
-const list = document.getElementById('todoList');
+
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
 const deleteButton = document.getElementById('clear');
@@ -20,34 +20,41 @@ if (tasks && tasks.length) {
   renderTasks(tasks);
 }
 
+function updatePosition(list) {
+  list.forEach((task, id) => {
+    task.index = id + 1;
+  });
+}
+
 function createTask() {
   const text = addInput.value;
 
-  if (text === "") {
-      return;
+  if (text === '') {
+    return;
   }
   const task = new Todo(text);
-  
+
   updatePosition(tasks);
   tasks.push(task);
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
   renderTasks(tasks);
 
-  addInput.value = "";
+  addInput.value = '';
 }
 
-function editItem(event, index) {
-  tasks.forEach(task => {
-      if (task.index === Number(index)) {
-          task.description = event.target.value;
-      }
+const saveList = (list) => {
+  window.localStorage.setItem('tasks', JSON.stringify(list));
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+};
+
+export default function editItem(event, index) {
+  tasks.forEach((task) => {
+    if (task.index === Number(index)) {
+      task.description = event.target.value;
+    }
   });
   saveList(tasks);
-}
-
-function updateLocalStorage() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
@@ -59,33 +66,25 @@ addInput.addEventListener('keypress', (event) => {
   }
 });
 
-// delete todo
-const saveList = (list) => {
-  window.localStorage.setItem('tasks', JSON.stringify(list));
-  tasks = JSON.parse(localStorage.getItem('tasks'));
-};
 
-function updatePosition(list) {
-    list.forEach((task, id) => {
-        task.index = id + 1;
-    });
-}
-  
-function deleteTask(indx) {
-    const newTasks = tasks.filter(task => task.index !== Number(indx));
 
-    updatePosition(newTasks);
-    renderTasks(newTasks);
-    saveList(newTasks);
+
+
+export default function deleteTask(indx) {
+  const newTasks = tasks.filter((task) => task.index !== Number(indx));
+
+  updatePosition(newTasks);
+  renderTasks(newTasks);
+  saveList(newTasks);
 }
-  
-  // function for delete all completed
+
+// function for delete all completed
 function deleteCompleted() {
-    const newList = tasks.filter((task) => task.completed === false);
+  const newList = tasks.filter((task) => task.completed === false);
 
-    updatePosition(newList);
-    renderTasks(newList);
-    saveList(newList);
+  updatePosition(newList);
+  renderTasks(newList);
+  saveList(newList);
 }
 
-  deleteButton.addEventListener('click', deleteCompleted);
+deleteButton.addEventListener('click', deleteCompleted);

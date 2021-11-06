@@ -1,5 +1,6 @@
 * {
   margin: 0;
+
   /* padding: 0; */
   box-sizing: border-box;
 }
@@ -12,10 +13,11 @@ body {
 }
 
 .header-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* flex-direction: column; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* flex-direction: column; */
 }
 
 h2 {
@@ -34,7 +36,7 @@ h2 {
   margin-right: 15px;
   cursor: pointer;
   width: 90%;
-  margin-left: 2px;;
+  margin-left: 2px;
 }
 
 button {
@@ -43,6 +45,7 @@ button {
   border: 1px solid rgb(216, 205, 205);
   background: white;
   box-sizing: border-box;
+
   /* width: 100%; */
 }
 
@@ -118,12 +121,12 @@ button {
   width: 100%;
   padding: 5px;
   margin: 1.5rem auto;
-  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .editable-input {
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
