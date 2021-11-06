@@ -4,42 +4,52 @@ import renderTasks from './render.js';
 const storedTasks = JSON.parse(localStorage.getItem('tasks'));
 const tasks = storedTasks || [];
 
+const list = document.getElementById('todoList');
 const addInput = document.getElementById('newTask');
 const addButton = document.getElementById('addBtn');
+const deleteButton = document.getElementById('clear');
 class Todo {
   constructor(description, completed = false) {
     this.description = description;
     this.completed = completed;
     this.index = tasks.length + 1;
   }
-
-  addArray() {
-    tasks.push({
-      description: this.description,
-      completed: this.completed,
-      index: this.index,
-    });
-  }
 }
 
-if (storedTasks && storedTasks.length) {
-  renderTasks(storedTasks);
+if (tasks && tasks.length) {
+  renderTasks(tasks);
 }
 
 function createTask() {
   const text = addInput.value;
 
-  if (text === '') {
-    return;
+  if (text === "") {
+      return;
   }
   const task = new Todo(text);
-
+  
+  updatePosition(tasks);
   tasks.push(task);
+
   localStorage.setItem('tasks', JSON.stringify(tasks));
   renderTasks(tasks);
 
-  addInput.value = '';
+  addInput.value = "";
 }
+
+function editItem(event, index) {
+  tasks.forEach(task => {
+      if (task.index === Number(index)) {
+          task.description = event.target.value;
+      }
+  });
+  saveList(tasks);
+}
+
+function updateLocalStorage() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 
 addButton.addEventListener('click', createTask);
 
@@ -48,3 +58,34 @@ addInput.addEventListener('keypress', (event) => {
     createTask();
   }
 });
+
+// delete todo
+const saveList = (list) => {
+  window.localStorage.setItem('tasks', JSON.stringify(list));
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+};
+
+function updatePosition(list) {
+    list.forEach((task, id) => {
+        task.index = id + 1;
+    });
+}
+  
+function deleteTask(indx) {
+    const newTasks = tasks.filter(task => task.index !== Number(indx));
+
+    updatePosition(newTasks);
+    renderTasks(newTasks);
+    saveList(newTasks);
+}
+  
+  // function for delete all completed
+function deleteCompleted() {
+    const newList = tasks.filter((task) => task.completed === false);
+
+    updatePosition(newList);
+    renderTasks(newList);
+    saveList(newList);
+}
+
+  deleteButton.addEventListener('click', deleteCompleted);
