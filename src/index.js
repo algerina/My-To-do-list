@@ -1,45 +1,88 @@
 import './style.css';
+/* eslint-disable */
+import renderTasks from './render.js';
 
-const Tasks = [];
-let count = 0;
-
+const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+let tasks = storedTasks || [];
+const addInput = document.getElementById('newTask');
+const addButton = document.getElementById('addBtn');
+const deleteButton = document.getElementById('clear');
+console.log(deleteButton);
 class Todo {
-  constructor(description, completed, index) {
+  constructor(description, completed = false) {
     this.description = description;
     this.completed = completed;
-    this.index = index;
+    this.index = tasks.length + 1;
   }
 }
 
-Tasks.push(new Todo('Read', false, (count += 1)));
-Tasks.push(new Todo('Yoga', false, (count += 1)));
-Tasks.push(new Todo('Cook', false, (count += 1)));
+if (tasks && tasks.length) {
+  renderTasks(tasks);
+}
 
-const Items = document.createElement('div');
-
-const addList = () => {
-  Tasks.forEach((task) => {
-    const taskItem = document.createElement('div');
-
-    const descriptionElem = document.createElement('span');
-    descriptionElem.innerText = task.description;
-    const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox';
-    taskItem.classList.add('element');
-    taskItem.appendChild(checkBox);
-    taskItem.appendChild(descriptionElem);
-    Items.appendChild(taskItem);
+function updatePosition(list) {
+  list.forEach((task, id) => {
+    task.index = id + 1;
   });
+}
 
-  document.getElementById('items').appendChild(Items);
+function createTask() {
+  const text = addInput.value;
 
-  const removeButton = document.createElement('button');
-  removeButton.classList.add('removeBtn');
-  removeButton.innerText = 'Clear all completed';
-  removeButton.type = 'button';
-  Items.appendChild(removeButton);
+  if (text === '') {
+    return;
+  }
+  const task = new Todo(text);
 
-  return Items;
+  updatePosition(tasks);
+  tasks.push(task);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  renderTasks(tasks);
+
+  addInput.value = '';
+}
+
+const saveList = (list) => {
+  window.localStorage.setItem('tasks', JSON.stringify(list));
+  tasks = JSON.parse(localStorage.getItem('tasks'));
 };
 
-addList();
+export default function editItem(event, index) {
+  tasks.forEach((task) => {
+    if (task.index === Number(index)) {
+      task.description = event.target.value;
+    }
+  });
+  saveList(tasks);
+}
+
+addButton.addEventListener('click', createTask);
+
+addInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    createTask();
+  }
+});
+
+export  function deleteTask(indx) {
+  const newTasks = tasks.filter((task) => task.index !== Number(indx));
+
+  updatePosition(newTasks);
+  renderTasks(newTasks);
+  saveList(newTasks);
+}
+
+// function for delete all completed
+function deleteCompleted() {
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+  const newList = tasks.filter((task) => task.completed === false);
+
+  updatePosition(newList);
+  renderTasks(newList);
+  saveList(newList);
+}
+
+deleteButton.addEventListener('click', deleteCompleted);
+
+// export default editItem;
