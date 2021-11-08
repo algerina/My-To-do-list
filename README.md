@@ -17,7 +17,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://algerina.github.io/My-to-do-list/dist)
+[Live Demo Link](https://algerina.github.io/My-To-do-list/dist/)
 
 
 ## Getting Started
