@@ -21,7 +21,7 @@ function renderTasks(tasks) {
     li.innerHTML = `
           <input type="checkbox" class="checkbox" id=${item.index} ${checked}>
           <input  type="text" value="${item.description}" class="editable-input" contenteditable />
-          <button class="remove">&#128465;</button>
+          <button class="remove">X</button>
         `;
         li.querySelector('.editable-input').addEventListener('change',  ()=> editItem(event, item.index));
         li.querySelector('.remove').addEventListener('click',  ()=> deleteTask(item.index));
