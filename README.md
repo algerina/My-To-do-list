@@ -4,7 +4,7 @@
 
 > This is a minimalist and simple To Do list.  It simply lists the things needed to do and allows  to mark them as complete.
 
-![screenshot](./finalTodo.png)
+![screenshot](./screen.JPG)
 
 Additional description about the project and its features.
 
