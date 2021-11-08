@@ -34,7 +34,7 @@ Additional description about the project and its features.
 👤 **AmelKhiri**
 
 
-- GitHub: [@gAlgerina](https://github.com/Algerina)
+- GitHub: [@Algerina](https://github.com/Algerina)
 - LinkedIn: [Amel Khiri](https://linkedin.com/in/amel-khiri-qahwadji-37a550135)
 
 
